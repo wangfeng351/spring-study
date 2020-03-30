@@ -7,10 +7,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="ioc" />
-        <module name="orm" />
         <module name="web" />
+        <module name="ioc" />
+        <module name="mybatis" />
         <module name="aop" />
+        <module name="web-annotation" />
+        <module name="orm" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="11" />

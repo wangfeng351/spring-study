@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Hello, world!</title>
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+</head>
+<div>
+<body>
+<div class="container">
+    <div style="width: 100%; background-color: red">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Dropdown
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; ">
+    <div class="card"  th:each="album:${list}">
+        <div class="card-body">
+            <img th:src="${album.url}" alt="" style="width: 14rem; height: 10rem;">
+            <p class="card-text" th:text="${album.name}"></p>
+            <p>
+                <a href="#" class="card-link">Card link</a>
+                <a href="#" class="card-link">Another link</a>
+            </p>
+        </div>
+    </div>
+</div>
+    <p th:each="item:${map}" class="foot-text" >
+        <span th:text="${item['value']}"></span>
+    </p>
+    <div class="card" style="width: 18rem;" th:object="${object}">
+        <img th:src="${object.url}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">G.E.M.邓紫棋</h5>
+            <p class="card-text" th:text="*{name}"></p>
+            <a href="https://zh.wikipedia.org/wiki/%E9%84%A7%E7%B4%AB%E6%A3%8B" class="btn btn-primary">了解更多</a>
+        </div>
+    </div>
+</div>
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<style>
+    .card {
+        flex: 0 0 23%;
+        margin-top: 1rem;
+    }
+
+    .card-body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card-text {
+        margin-top: 0.8rem;
+    }
+
+    .foot-text {
+        text-align: center;
+        margin-top: 20px;
+        color: red;
+        font-weight: 600;
+        font-size: 24px;
+    }
+</style>
+</body>
+</html>

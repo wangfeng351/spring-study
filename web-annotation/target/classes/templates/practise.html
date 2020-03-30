@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Hello, world!</title>
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
+    <title>Jsoup爬虫数据展示页面</title>
+</head>
+<body>
+<div class="container">
+    <div class="sponsor">
+        <div class="head">
+            <span>Sponsored developers and organizations</span>
+            <button>换一批</button>
+        </div>
+<!--        <p th:text="${book.name}"></p>-->
+        <div class="card1" th:each="sponsor:${sponsors}">
+                <img th:src="${sponsor.avatar}" alt="">
+                <h5 class="card-title" th:text="${sponsor.authorName}"></h5>
+                <p class="card-text" th:text="${sponsor.description}"></p>
+                <button class="btn btn-primary"><span class="heart">♥</span>Sponsor</button>
+        </div>
+    </div>
+    <div class="book">
+        <div class="card" th:each="book:${books}" style="width: 18rem;">
+            <img th:src="${book.avatar}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <a th:text="${book.name}" th:href="${book.url}" />
+                <p th:text="${book.author}"></p>
+                ￥<span th:text="${book.price}"></span>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    .container {
+        margin: 20px auto;
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .sponsor {
+        flex: 0 0 70%;
+    }
+
+    .head {
+        height: 60px;
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 10px;
+        border: 1px solid rgb(212, 216, 220);
+        background-color: rgb(246, 248, 250);
+    }
+
+    .head button {
+        height: 35px;
+        width: 100px;
+        border-radius: 5px;
+        border: 1px solid rgb(205, 207, 209);
+    }
+
+    .card1 {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        min-height: 100px;
+        padding: 10px 10px 10px 30px;
+        border: 1px solid #d4d8dc;
+    }
+
+    .card1 img {
+        width: 40px;
+        height: 40px;
+        margin-right: 10px;
+    }
+
+    .card1 h5 {
+        width: 160px;
+        color: #0366d6;
+    }
+
+    .card1 p {
+        width: 50%;
+        margin-right: 20px;
+    }
+
+    .card1 button {
+        display: flex;
+        align-items: center;
+        outline: none;
+        width: 100px;
+        height: 35px;
+        font-size: 16px;
+        color: black;
+        font-weight: 600;
+    }
+
+    .book {
+        width: 30%;
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: 10px;
+        border: 1px solid #d4d8dc;
+        justify-content: space-between;
+    }
+
+    .card {
+        flex: 0 0 48%;
+        min-height: 200px;
+        padding: 10px 10px;
+        border: none;
+    }
+
+    .card img {
+        height: 50%;
+    }
+
+    .card-body {
+        height: 40%;
+        width: 100%;
+        padding: 0;
+    }
+
+    .card-body a {
+        width: 100%;
+        color: black;
+    }
+
+    .card-body p {
+        margin: 0;
+        margin-top: 5px;
+        font-size: 14px;
+    }
+
+    .card-body span {
+        margin: 0;
+        margin-top: 5px;
+        font-size: 14px;
+    }
+
+    .heart {
+        color: #ed80c3;
+        font-size: 18px;
+        margin-right: 5px;
+    }
+</style>
+</body>
+</html>
